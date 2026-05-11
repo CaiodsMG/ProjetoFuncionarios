@@ -9,7 +9,7 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> 
 
     List<Funcionario> findByNomeContainingIgnoreCase(String nome);
 
-    List<Funcionario> findByDepartamento(String departamento);
+    List<Funcionario> findByDepartamentoContainingIgnoreCase(String departamento);
 
-    List<Funcionario> findByCargo(String cargo);
+    List<Funcionario> findByCargoContainingIgnoreCase(String cargo);
 }

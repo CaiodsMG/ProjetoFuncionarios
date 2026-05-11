@@ -24,6 +24,16 @@ public class FuncionarioService {
         return funcionarioEncontrado;
     }
 
+    public List<Funcionario> buscarPorDepartamento(String departamento){
+        List<Funcionario> funcionariosEncontrados = repository.findByDepartamentoContainingIgnoreCase(departamento);
+        return funcionariosEncontrados;
+    }
+
+    public List<Funcionario> buscarPorCargo(String cargo){
+        List<Funcionario> funcionariosEncontrados = repository.findByCargoContainingIgnoreCase(cargo);
+        return funcionariosEncontrados;
+    }
+
     public Funcionario salvarFuncionario(Funcionario funcionario){
         Funcionario funcionarioSalvo = repository.save(funcionario);
         return funcionarioSalvo;
@@ -34,22 +44,15 @@ public class FuncionarioService {
 
         BeanUtils.copyProperties(funcionario, funcionarioEncontrado, "id");
 
-        return funcionarioEncontrado;
+        return repository.save(funcionarioEncontrado);
     }
 
-    public List<Funcionario> buscarPorDepartamento(String departamento){
-        List<Funcionario> funcionariosEncontrados = repository.findByDepartamento(departamento);
-        return funcionariosEncontrados;
-    }
-
-    public List<Funcionario> buscarPorCargo(String cargo){
-        List<Funcionario> funcionariosEncontrados = repository.findByCargo(cargo);
-        return funcionariosEncontrados;
-    }
 
     public void excluirFuncionario(Long id){
         Funcionario funcionarioEncontrado = repository.findById(id).orElseThrow(()-> new IllegalArgumentException());
 
         repository.delete(funcionarioEncontrado);
     }
+
+
 }
