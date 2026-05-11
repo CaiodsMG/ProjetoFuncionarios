@@ -34,4 +34,61 @@ public class Funcionario {
     @NotNull(message = "O salário é obrigatório.")
     @Positive(message = "O salário deve ser maior que zero.")
     private BigDecimal salario;
+
+    public Funcionario() {
+    }
+
+    public Funcionario(Long id, String nome, String cargo, String departamento, String email, BigDecimal salario) {
+        this.id = id;
+        this.nome = nome;
+        this.cargo = cargo;
+        this.departamento = departamento;
+        this.email = email;
+        this.salario = salario;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public BigDecimal getSalario() {
+        return salario;
+    }
+
+    public void setSalario(BigDecimal salario) {
+        this.salario = salario;
+    }
 }
